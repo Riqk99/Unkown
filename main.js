@@ -11,9 +11,9 @@ function init(){
     this.grid = [,];
     this.walkables = [];
 
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 20; i++){
         this.grid[i] = [];
-        for(let j = 0; j < 10; j++){
+        for(let j = 0; j < 20; j++){
             this.grid[i].push(new Block(getBool(), [32, 32], [i * 32, j * 32]));
         }
     }
@@ -38,7 +38,7 @@ function draw(){
                 colour = 'red';
             }
 
-            this.grid[i][j].draw(colour);
+            this.grid[j][i].draw(colour);
         }
     }
 
@@ -47,7 +47,7 @@ function draw(){
 
 //just for a random, can be removed
 function getBool() {
-    return Math.floor(Math.random() * Math.floor(10)) > 1;
+    return Math.floor(Math.random() * Math.floor(10)) > 2;
 }
 
 function find(){
@@ -57,14 +57,13 @@ function find(){
     easyStar.setAcceptableTiles(this.walkables);
     easyStar.enableSync();
 
-    easyStar.findPath(0, 0, 8, 8, function(path) {
+    easyStar.findPath(0, 0, 18, 18, function(path) {
         if (path != null) {
             //found path!
             console.log('found!');
             for(let i = 0; i < path.length; i++){
-                doSetTimeout(path[i]);
-                
-                
+
+                moveMonster(path, 0);                
                 
             }
         } else {
@@ -74,17 +73,18 @@ function find(){
         }
     });
 
-    easyStar.instanceQueue = [1,1];
-
     easyStar.calculate();
 }
 
-
-
-function doSetTimeout(path){
-    setTimeout(function () {
-        this.monster.setPos(path.x * 32 + 8, path.y * 32 + 8);      
-    }, 1000);
+function moveMonster(path, i){
+    setTimeout(function(){
+        this.monster.setPos(path[i].x * 32 + 16, path[i].y * 32 + 16);
+        if(i < path.length){
+            i++;
+            moveMonster(path, i);
+        }
+    }, 100);
+   
 }
 
 setInterval(draw, 10);
