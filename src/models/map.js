@@ -3,6 +3,7 @@ class Map
 		constructor()
         {
             var canvas = document.createElement("canvas");
+            canvas.id = 'canvas';
             canvas.width = 100*32;
             canvas.height =100*32;
             canvas.context = canvas.getContext("2d");
@@ -48,7 +49,6 @@ class Map
         {
             for(var i = 0; i < walls.length ; i++)
             {
-                console.log(walls[i].points[0].x);
                 var wall = new ObjectsColision(walls[i].points[0].x ,walls[i].points[0].y , walls[i].points[1].x , walls[i].points[1].x);
                 this.walls[i] = wall;
             }

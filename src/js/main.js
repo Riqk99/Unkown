@@ -15,9 +15,12 @@ function init(canvas, player){
     this.grid = [,];
     this.walkables = [];
 
-    for(let i = 0; i < 20; i++){
+    let x = this.canvas.width / 32;
+    let y = this.canvas.height / 32;
+
+    for(let i = 0; i < x; i++){
         this.grid[i] = [];
-        for(let j = 0; j < 20; j++){
+        for(let j = 0; j < y; j++){
             this.grid[i].push(new Block(getBool(), [32, 32], [i * 32, j * 32]));
         }
     }
@@ -45,20 +48,6 @@ function draw(){
     }
     //clear all
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    //draw grid
-    for(let i = 0; i < this.grid.length - 1; i++){
-        for(let j = 0; j < this.grid[i].length - 1; j++){
-            var colour;
-
-            if(i % 2 === 0 && j % 2 === 1 || i % 2 === 1 && j % 2 === 0){
-                colour = 'red';
-            }else{
-                colour = 'black';
-            }
-
-            this.grid[j][i].draw(colour);
-        }
-    }
 
     this.monster.draw(this.context);
     this.player.draw(this.context);
@@ -75,7 +64,7 @@ function getBool() {
 }
 
 function find(){
-
+    return;
     var instance = this.easyStar.findPath(this.monster.x, this.monster.y, this.player.positionX, this.player.positionY, function(path) {
         if (path != null) {
             //found path!
