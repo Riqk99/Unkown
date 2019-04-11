@@ -2,7 +2,8 @@
 class Monster {
     damage = 10;
     x = 0;
-    y = 0;   
+    y = 0; 
+    speed = 0;  
 
     draw(context, canvas) {
         context.beginPath();
@@ -20,5 +21,9 @@ class Monster {
     setPos(x, y){
         this.x = x;
         this.y = y;
+    }
+
+    speedUp(){
+        this.speed += 10;
     }
 }

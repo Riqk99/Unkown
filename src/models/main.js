@@ -1,30 +1,32 @@
 var myGamePiece;
 
 function startGame() {
-    myGameArea.start();
     myGamePiece = new Player('test');
-
+    myGameArea.start();
 }
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
 
     start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
+        this.canvas.width = 800;
+        this.canvas.height = 700;
         this.context = this.canvas.getContext("2d");
 
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 
         this.interval = setInterval(updateGameArea, 20); //updates elements of map
-
+        this.pressed = false;
         //listen to keyboard events to move player
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode;
         });
         window.addEventListener('keyup', function (e) {
             myGameArea.key = false;
-        })
+            this.pressed = false;
+        });
+
+        init(this.canvas, myGamePiece);
     },
 
     clear : function(){
@@ -33,7 +35,7 @@ var myGameArea = {
 };
 
 
-function draw(){
+/*function draw(){
 
     //clear all
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -54,25 +56,45 @@ function draw(){
     }
 
     this.monster.draw(this.context);
-}
+}*/
 
 
-function updatePostition()
+/*function updatePostition()
 {
     //updates position of player on the map
     let ctx = myGameArea.context;
     ctx.fillStyle = "red";
     ctx.fillRect(myGamePiece.positionX, myGamePiece.positionY, myGamePiece.width, myGamePiece.height);
 
-}
+}*/
 
 function updateGameArea() {
-    myGameArea.clear();
+    //myGameArea.clear();
     // loop to change coordinates of player
-    if (myGameArea.key && myGameArea.key == 37) {myGamePiece.moveBackward() }
-    if (myGameArea.key && myGameArea.key == 39) {myGamePiece.moveforward(); }
-    if (myGameArea.key && myGameArea.key == 38) {myGamePiece.moveDown(); }
-    if (myGameArea.key && myGameArea.key == 40) {myGamePiece.moveUp(); }
-    updatePostition()
+    if (myGameArea.key && myGameArea.key == 37 && !this.pressed) {
+        myGamePiece.moveBackward(); 
+        this.pressed = true;
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 39 && !this.pressed) {
+        myGamePiece.moveforward(); 
+        this.pressed = true;
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 38 && !this.pressed) {
+        myGamePiece.moveDown(); 
+        this.pressed = true;
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 40 && !this.pressed) {
+        myGamePiece.moveUp(); 
+        this.pressed = true;
+        find();
+    }
+
+    //updatePostition()
 }
 

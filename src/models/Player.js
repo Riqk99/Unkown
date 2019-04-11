@@ -8,8 +8,8 @@ class Player {
         this.munitions = 0;
         this.bodyparts = 0;
         this.speed = 1;
-        this.positionX = 0;
-        this.positionY = 0;
+        this.positionX = 5;
+        this.positionY = 5;
         this.width = 30;
         this.height = 30;
         this.image = "red";
@@ -78,7 +78,7 @@ class Player {
     }
 
     moveforward() {
-        this.positionX +=1
+        this.positionX += 1
     }
 
     moveBackward() {
@@ -91,6 +91,14 @@ class Player {
 
     moveDown() {
         this.positionY -= 1
+    }
+
+    draw(context){
+        context.beginPath();
+        context.arc(this.positionX * 32 + 16, this.positionY * 32 + 16, 10, 0, Math.PI * 2, false);
+        context.fillStyle = "blue";
+        context.fill();
+        context.closePath();
     }
 
 
