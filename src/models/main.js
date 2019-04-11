@@ -1,11 +1,12 @@
 var myGamePiece;
-var myGamePiece2;
+
 var myGameMap;
+
 
 function startGame() {
     myGameArea.start();
     myGamePiece = new Player('test');
-    myGamePiece2 = new Player('test');
+
 }
 
 var myGameArea = {
@@ -21,7 +22,8 @@ var myGameArea = {
         });
         window.addEventListener('keyup', function (e) {
             myGameArea.key = false;
-        })
+        });
+        init(this.canvas, myGamePiece);
     },
 
     clear : function(){
@@ -31,7 +33,7 @@ var myGameArea = {
 };
 
 
-/*function draw(){
+function draw(){
 
     //clear all
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -52,17 +54,33 @@ var myGameArea = {
     }
 
     this.monster.draw(this.context);
-}*/
+}
 
 function updateGameArea() {
     myGameArea.clear();
     // loop to change coordinates of player
     let x = myGamePiece.getPositionX;
     let y = myGamePiece.getPositionY;
-    if (myGameArea.key && myGameArea.key == 37) {myGamePiece.moveBackward() }
-    if (myGameArea.key && myGameArea.key == 39) {myGamePiece.moveforward(); }
-    if (myGameArea.key && myGameArea.key == 38) {myGamePiece.moveDown(); }
-    if (myGameArea.key && myGameArea.key == 40) {myGamePiece.moveUp(); }
+    if (myGameArea.key && myGameArea.key == 37) {
+        myGamePiece.moveBackward();
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 39) {
+        myGamePiece.moveforward();
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 38) {
+        myGamePiece.moveDown();
+        find();
+    }
+
+    if (myGameArea.key && myGameArea.key == 40) {
+        myGamePiece.moveUp();
+        find();
+    }
+
     let objects = [myGamePiece, myGamePiece2];
 
     myGameMap.mapBoundriesCheck(myGamePiece);
@@ -76,6 +94,5 @@ function updateGameArea() {
     {
         myGameMap.updatePosition(myGameMap.getMap(), objects[i] );
     }
-
 }
 

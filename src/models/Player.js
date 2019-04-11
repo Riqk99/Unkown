@@ -103,6 +103,14 @@ class Player {
         this.positionY -= (1*this.getSpeed)
     }
 
+    draw(context){
+        context.beginPath();
+        context.arc(this.positionX * 32 + 16, this.positionY * 32 + 16, 10, 0, Math.PI * 2, false);
+        context.fillStyle = "blue";
+        context.fill();
+        context.closePath();
+    }
+
 
 }
 

@@ -2,7 +2,8 @@
 class Monster {
     damage = 10;
     x = 0;
-    y = 0;   
+    y = 0;
+    speed = 0;
 
     draw(context, canvas) {
         context.beginPath();
@@ -25,5 +26,9 @@ class Monster {
     attack()
     {
         return 100;
+    }
+
+    speedUp(){
+        this.speed += 10;
     }
 }
