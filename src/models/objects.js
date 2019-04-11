@@ -13,10 +13,9 @@ class ObjectsColision{
 
     collide(player , x, y )
     {
+        return;
         let playerToCollide = new Player();
         playerToCollide = player;
-        console.log(player.getPositionX , player.getPositionY);
-        console.log(x,y);
 
         if ((this.xmin < player.getPositionX + player.getWidth &&
             this.xmin + this.width > player.getPositionX &&
@@ -51,7 +50,6 @@ class ObjectsColision{
             console.log("you got hit");
             player.set_life(this.type.attack());
         }
-
 
     }
 }

@@ -47,10 +47,11 @@ function draw(){
         this.monster.speedUp();
     }
     //clear all
-    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    /*this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
+
+    this.player.draw(this.context);*/
     this.monster.draw(this.context);
-    this.player.draw(this.context);
 
     if(this.monster.x == this.player.positionX && this.monster.y == this.player.positionY){
         alert('lost!');
@@ -64,7 +65,7 @@ function getBool() {
 }
 
 function find(){
-    return;
+
     var instance = this.easyStar.findPath(this.monster.x, this.monster.y, this.player.positionX, this.player.positionY, function(path) {
         if (path != null) {
             //found path!

@@ -15,7 +15,7 @@ var myGameArea = {
         this.canvas = document.getElementById('canvas');
         this.context = canvas.getContext('2d');
         this.canvas.background = "./stages/Level1.png";
-        this.interval = setInterval(updateGameArea, 20); //updates elements of map
+        this.interval = setInterval(updateGameArea, 200); //updates elements of map
         //listen to keyboard events to move player
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode;

@@ -7,9 +7,9 @@ class Player {
         this.weapons = [];
         this.munitions = 0;
         this.bodyparts = 0;
-        this.speed = 10;
-        this.positionX = 500;
-        this.positionY = 1800;
+        this.speed = 1;
+        this.positionX = 1;
+        this.positionY = 1;
         this.width = 50;
         this.height = 50;
         this.image = "red";
@@ -88,7 +88,7 @@ class Player {
     }
 
     moveforward() {
-        this.positionX +=(1*this.getSpeed)
+        this.positionX += (1*this.getSpeed)
     }
 
     moveBackward() {
@@ -105,7 +105,7 @@ class Player {
 
     draw(context){
         context.beginPath();
-        context.arc(this.positionX * 32 + 16, this.positionY * 32 + 16, 10, 0, Math.PI * 2, false);
+        context.arc(this.positionX, this.positionY, 10, 0, Math.PI * 2, false);
         context.fillStyle = "blue";
         context.fill();
         context.closePath();

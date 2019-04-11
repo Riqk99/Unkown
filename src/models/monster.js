@@ -7,7 +7,7 @@ class Monster {
 
     draw(context, canvas) {
         context.beginPath();
-        context.arc(this.x * 32 + 16, this.y * 32 + 16, 10, 0, Math.PI * 2, false);
+        context.arc(this.x * 100 + 50, this.y * 100 + 50, 30, 0, Math.PI * 2, false);
         context.fillStyle = "green";
         context.fill();
         context.closePath();

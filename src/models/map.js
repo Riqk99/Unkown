@@ -42,7 +42,7 @@ class Map
                 let ctx = canvas.context;
 
                 ctx.fillStyle = object.image;
-                ctx.fillRect(object.positionX, object.positionY, object.width, object.height);
+                ctx.fillRect(object.positionX *100 + 50, object.positionY*100+50, object.width, object.height);
             }
 
         loadColisions(walls)
@@ -56,22 +56,23 @@ class Map
 
         mapBoundriesCheck(player)
         {
+            return;
             if(this.boundries.x >= player.getPositionX)
             {
-                player.setPosition(100,player.getPositionY);
+                player.setPosition(50,player.getPositionY);
             }
             if(this.boundries.xmax <= player.getPositionX)
             {
-                player.setPosition(3100,player.getPositionY);
+                player.setPosition(60,player.getPositionY);
             }
 
             if(this.boundries.x >= player.getPositionY)
             {
-                player.setPosition(player.getPositionX,100);
+                player.setPosition(player.getPositionX,1);
             }
             if(this.boundries.xmax <= player.getPositionY)
             {
-                player.setPosition(player.getPositionX,3100);
+                player.setPosition(player.getPositionX,31);
             }
         }
 
