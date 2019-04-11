@@ -1,10 +1,8 @@
 
 class Monster {
     damage = 10;
-    speed = 10;
     x = 16;
     y = 16;   
-    angle = 0;
 
     draw(context, canvas) {
         context.beginPath();
