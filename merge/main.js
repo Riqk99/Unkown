@@ -57,7 +57,7 @@ function find(){
     easyStar.setAcceptableTiles(this.walkables);
     easyStar.enableSync();
 
-    easyStar.findPath(0, 0, 18, 18, function(path) {
+    easyStar.findPath(this.monster.x, this.monster.y, 18, 18, function(path) {
         if (path != null) {
             //found path!
             console.log('found!');
@@ -78,7 +78,7 @@ function find(){
 
 function moveMonster(path, i){
     setTimeout(function(){
-        this.monster.setPos(path[i].x * 32 + 16, path[i].y * 32 + 16);
+        this.monster.setPos(path[i].x, path[i].y);
         if(i < path.length){
             i++;
             moveMonster(path, i);

@@ -5,6 +5,7 @@ function include(url) {
     document.head.appendChild(sc);
   }
 
-include('monster.js');
-include('block.js');
-include('easyStar/easystar-0.4.3.js');
+include('../models/monster.js');
+include('../models/block.js');
+include('../../easyStar/easystar-0.4.3.js');
+include('../models/Player.js');
