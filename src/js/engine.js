@@ -9,3 +9,5 @@ include('../models/monster.js');
 include('../models/block.js');
 include('../../easyStar/easystar-0.4.3.js');
 include('../models/Player.js');
+include('../models/map.js');
+include('../models/objects.js');

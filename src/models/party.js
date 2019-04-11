@@ -4,7 +4,7 @@ class Party
     {
         this.Name = Name;
         this.Player = Player;
-        this.level = 0;
+        this.level = 1;
     }
 
     load()
@@ -21,6 +21,21 @@ class Party
     delete()
     {
         delete this;
+    }
+
+    get getLevel()
+    {
+        return this.level;
+    }
+
+    get getPlayer()
+    {
+        return this.Player;
+    }
+
+    get getName()
+    {
+        return this.Name;
     }
 }
 

@@ -21,4 +21,9 @@ class Monster {
         this.x = x;
         this.y = y;
     }
+
+    attack()
+    {
+        return 100;
+    }
 }

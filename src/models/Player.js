@@ -7,11 +7,11 @@ class Player {
         this.weapons = [];
         this.munitions = 0;
         this.bodyparts = 0;
-        this.speed = 1;
-        this.positionX = 0;
-        this.positionY = 0;
-        this.width = 30;
-        this.height = 30;
+        this.speed = 10;
+        this.positionX = 500;
+        this.positionY = 1800;
+        this.width = 50;
+        this.height = 50;
         this.image = "red";
 
     }
@@ -48,6 +48,16 @@ class Player {
         return this.positionY;
     }
 
+    get getWidth()
+    {
+        return this.width;
+    }
+
+    get getHeight()
+    {
+        return this.height;
+    }
+
     level_up() {
         this.level += 1;
     }
@@ -78,19 +88,19 @@ class Player {
     }
 
     moveforward() {
-        this.positionX +=1
+        this.positionX +=(1*this.getSpeed)
     }
 
     moveBackward() {
-        this.positionX -= 1
+        this.positionX -= (1*this.getSpeed)
     }
 
     moveUp() {
-        this.positionY += 1
+        this.positionY += (1*this.getSpeed)
     }
 
     moveDown() {
-        this.positionY -= 1
+        this.positionY -= (1*this.getSpeed)
     }
 
 
