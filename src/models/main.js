@@ -4,7 +4,7 @@ function startGame() {
     myGameArea.start();
     myGamePiece = new Player('test');
 
-};
+}
 
 var myGameArea = {
     canvas : document.createElement("canvas"),
@@ -13,6 +13,8 @@ var myGameArea = {
         this.canvas.width = 480;
         this.canvas.height = 270;
         this.context = this.canvas.getContext("2d");
+
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
 
         this.interval = setInterval(updateGameArea, 20); //updates elements of map
 
@@ -58,7 +60,7 @@ function draw(){
 function updatePostition()
 {
     //updates position of player on the map
-    ctx = myGameArea.context;
+    let ctx = myGameArea.context;
     ctx.fillStyle = "red";
     ctx.fillRect(myGamePiece.positionX, myGamePiece.positionY, myGamePiece.width, myGamePiece.height);
 
