@@ -40,7 +40,10 @@ class Map
             {
 
                 let ctx = canvas.context;
-
+                /*ctx.clip();
+                let img = new Image();
+                img.src = object.image;*/
+                //ctx.drawImage(img, 0 , 0);
                 ctx.fillStyle = object.image;
                 ctx.fillRect(object.positionX *100 + 50, object.positionY*100+50, object.width, object.height);
             }

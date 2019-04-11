@@ -13,6 +13,7 @@ class Player {
         this.width = 50;
         this.height = 50;
         this.image = "red";
+        //'../../Images/Art/character/player_down.png'
 
     }
 

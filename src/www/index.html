@@ -6,12 +6,35 @@
         <script src="../models/main.js"></script>
         <style>
                 canvas {
-                border:1px solid #d3d3d3;
-                background-image: url("../stages/Level1.png");
+                    border:1px solid #d3d3d3;
+                    background-image: url("../stages/Level1.png");
+                    height: 3200px;
+                    width: 3200px;
+
                 }
+                .playButton
+                {
+                    height: 3200px;
+                    width: 3200px;
+                }
+            .menuImage
+            {
+                height: 3200px;
+                width: 3200px;
+            }
         </style>
     </head>
-    <body onload="startGame()">
+    <body onload="menu()">
+    <audio id="Splash" src="../../Sound/Music/splashMusic.ogg" preload="auto" type="audio/ogg"></audio>
+    <audio id="Menu" src="../../Sound/Music/menuMusic.ogg" preload="auto" type="audio/ogg"></audio>
+    <audio id="Button" src="../../Sound/Effect/buttonEffect.ogg" preload="auto" type="audio/ogg"></audio>
+    <audio id="Damage" src="../../Sound/Effect/playerDamage.ogg" preload="auto"></audio>
+    <audio id="Death" src="../../Sound/Effect/playerDeath.ogg" preload="auto"></audio>
+    <audio id="Stalker" src="../../Sound/Effect/stalkerScream.ogg" preload="auto"></audio>
+    <audio id="Ambiance1" src="../../Sound/Ambiance/ambiance_1.ogg" preload="auto"></audio>
+    <audio id="Ambiance2" src="../../Sound/Ambiance/ambiance_2.ogg" preload="auto"></audio>
+    <audio id="Ambiance3" src="../../Sound/Ambiance/ambiance_3.ogg" preload="auto"></audio>
+    <button id="playButton" ><img src="../../Images/Art/menu/main_menu.png" id="menuImage" height="3200" width="4500"/></button>
 
     </body>
 </html>

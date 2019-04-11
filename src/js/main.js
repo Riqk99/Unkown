@@ -37,8 +37,8 @@ function init(canvas, player){
 
     draw();
     find();
-}
 
+}
 
 //method is executed iteration
 function draw(){
@@ -54,8 +54,10 @@ function draw(){
     this.monster.draw(this.context);
 
     if(this.monster.x == this.player.positionX && this.monster.y == this.player.positionY){
+        playmusic("Death");
         alert('lost!');
         clearInterval(this.interval);
+        location.reload(true);
     }
 }
 
