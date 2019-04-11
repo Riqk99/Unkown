@@ -49,12 +49,6 @@ function draw(){
     for(let i = 0; i < this.grid.length - 1; i++){
         for(let j = 0; j < this.grid[i].length - 1; j++){
             var colour;
-            /*if(grid[i][j].walkable){
-                this.walkables.push(this.grid[i][j]);
-                colour = 'black';
-            } else{
-                colour = 'red';
-            }*/
 
             if(i % 2 === 0 && j % 2 === 1 || i % 2 === 1 && j % 2 === 0){
                 colour = 'red';
@@ -81,19 +75,10 @@ function getBool() {
 }
 
 function find(){
-    
-
-    //easyStar.enableSync();
 
     var instance = this.easyStar.findPath(this.monster.x, this.monster.y, this.player.positionX, this.player.positionY, function(path) {
         if (path != null) {
             //found path!
-            if(this.instances[0] != undefined){
-                if(this.instances[this.instances.length - 1][1]){
-                    this.instances[this.instances.length - 1][1] = false;
-                    easyStar.cancelPath(this.instance);
-                }
-            }
             this.instances.push([instance, true]);
             moveMonster(path, 0, instance); 
             
@@ -106,12 +91,12 @@ function find(){
 
     this.easyStar.calculate();
 
-    /*if(this.instances[0] != undefined){
+    if(this.instances[0] != undefined){
         if(this.instances[this.instances.length - 1][1]){
             this.instances[this.instances.length - 1][1] = false;
             easyStar.cancelPath(this.instance);
         }
-    }*/
+    }
 }
 
 function moveMonster(path, i, instance){
@@ -122,7 +107,6 @@ function moveMonster(path, i, instance){
     }else{
         timeout = 5000 - this.monster.speed
     }
-    console.log(timeout);
 
     setTimeout(function(){
         let inst = this.instances.filter(ins => ins[0] == instance);
@@ -140,9 +124,6 @@ function moveMonster(path, i, instance){
                         break;
                     }
                 }
-
-                /*let index = this.instances.findIndex(ins => ins[0] == instance);
-                this.instances[index][1] = false;*/
             }
         }
     }, timeout);
